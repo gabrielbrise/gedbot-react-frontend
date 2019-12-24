@@ -1,38 +1,144 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding-top: 30vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  @media (min-width: 960px) {
+  }
+}
+
+.ColorLime {
+  color: #aaff67;
+}
+
+/* FONT SIZE */
+
+.FS2x {
+  font-size: 1rem;
+}
+
+.FS3x {
+  font-size: 1.3rem;
+}
+
+.FS4x {
+  font-size: 1.6rem;
+}
+
+.FS5x {
+  font-size: 1.9rem;
+}
+
+.FS6x {
+  font-size: 2.2rem;
+}
+
+.FS7x {
+  font-size: 2.5rem;
+}
+
+.FS8x {
+  font-size: 2.8rem;
+}
+
+.FS9x {
+  font-size: 3.2rem;
+}
+
+.FS10x {
+  font-size: 3.5rem;
+}
+
+.Montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #282c34;
   color: white;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.TextLight {
+  font-weight: 400;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.TextBold {
+  font-weight: 700;
+}
+
+.TextBlack {
+  font-weight: 900;
+}
+
+.Flex {
+  display: flex;
+}
+
+.FlexColumn {
+  flex-direction: column;
+}
+
+.FlexRow {
+  flex-direction: row;
+}
+
+.JCCenter {
+  justify-content: center;
+}
+
+.AICenter {
+  align-items: center;
+}
+
+.W100 {
+  width: 100%;
+}
+
+/* PADDING */
+
+.PB32 {
+  padding-bottom: 32px;
+}
+
+.PB24 {
+  padding-bottom: 24px;
+}
+
+.PR12 {
+  padding-right: 12px;
+}
+
+.PV16 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* MARGIN */
+
+.MB24 {
+  margin-bottom: 24px;
+}
+
+.MB32 {
+  margin-bottom: 32px;
+}
+
+.MB8 {
+  margin-bottom: 8px;
+}
+
+.MH12 {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.Uppercase {
+  text-transform: uppercase;
+}
+
+.Pointer {
+  cursor: pointer;
 }

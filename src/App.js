@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import "./App.css";
+import SentenceGeneratorSection from "./components/sections/SentenceGeneratorSection";
+import DropdownSection from "./components/DropdownSection";
+import DrawingLines from "./components/DrawingLines";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App Flex FlexColumn AICenter">
+    <DrawingLines />
+    <Header title="GEDbot" subtitle="gerador de desculpas" />
+    <SentenceGeneratorSection />
+    <DropdownSection title="Adicione suas respostas">
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+    </DropdownSection>
+    <DropdownSection title="Vote nas melhores">
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+      <div>teste</div>
+    </DropdownSection>
+  </div>
+);
 
 export default App;
