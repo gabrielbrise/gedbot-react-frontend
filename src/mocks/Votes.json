@@ -1,0 +1,48 @@
+{
+  "greeting": [
+    {
+      "text": "olá pessoal!",
+      "score": 4,
+      "isApproved": false
+    },
+    {
+      "text": "ae galera",
+      "score": 2,
+      "isApproved": false
+    },
+    {
+      "text": "bom dia rapazes",
+      "score": 0,
+      "isApproved": false
+    }
+  ],
+  "reason": [
+    {
+      "text": "estou descansando depois de trabalhar a noite inteira",
+      "score": 3,
+      "isApproved": false
+    },
+    {
+      "text": "preciso acordar cedo para cortar o cabelo amanhã",
+      "score": 12,
+      "isApproved": true
+    },
+    {
+      "text": "enceraram a escada daqui de casa e não posso sair do meu quarto",
+      "score": 24,
+      "isApproved": true
+    }
+  ],
+  "goodbye": [
+    {
+      "text": "até mais!",
+      "score": 2,
+      "isApproved": false
+    },
+    {
+      "text": "aproveitem por mim",
+      "score": -2,
+      "isApproved": false
+    }
+  ]
+}

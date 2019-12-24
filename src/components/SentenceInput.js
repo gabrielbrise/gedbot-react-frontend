@@ -4,7 +4,7 @@ import styled from "styled-components";
 const SentenceInput = ({ label, input, size }) => (
   <Container className="MH12">
     <div>{label}</div>
-    <input className="ColorWhite FS2x MV12" style={{ width: size }}>
+    <input className="ColorWhite FS2x MV12 TextCenter" style={{ width: size }}>
       {input}
     </input>
   </Container>

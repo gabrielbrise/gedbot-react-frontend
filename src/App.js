@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import "./App.css";
 import SentenceGeneratorSection from "./components/sections/SentenceGeneratorSection";
 import SendSentenceSection from "./components/sections/SendSentenceSection";
-import DropdownSection from "./components/DropdownSection";
+import VotingSection from "./components/sections/VotingSection";
 import DrawingLines from "./components/DrawingLines";
 
 const App = () => (
@@ -12,17 +12,7 @@ const App = () => (
     <Header title="GEDbot" subtitle="gerador de desculpas" />
     <SentenceGeneratorSection />
     <SendSentenceSection />
-
-    <DropdownSection title="Vote nas melhores">
-      <div>teste</div>
-      <div>teste</div>
-      <div>teste</div>
-      <div>teste</div>
-      <div>teste</div>
-      <div>teste</div>
-      <div>teste</div>
-      <div>teste</div>
-    </DropdownSection>
+    <VotingSection />
   </div>
 );
 

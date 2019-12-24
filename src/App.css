@@ -129,6 +129,10 @@ body {
   padding-bottom: 16px;
 }
 
+.P16 {
+  padding: 16px;
+}
+
 /* MARGIN */
 
 .MB24 {
@@ -162,6 +166,10 @@ body {
 }
 
 /* POSITIONING */
+
+.TextCenter {
+  text-align: center;
+}
 
 .Relative {
   position: relative;
