@@ -12,6 +12,10 @@
   color: #aaff67;
 }
 
+.ColorWhite {
+  color: white;
+}
+
 /* FONT SIZE */
 
 .FS2x {
@@ -59,6 +63,11 @@ body {
   color: white;
   font-size: 16px;
   font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .TextLight {
@@ -111,6 +120,10 @@ body {
   padding-right: 12px;
 }
 
+.PT12 {
+  padding-top: 12px;
+}
+
 .PV16 {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -135,10 +148,25 @@ body {
   margin-right: 12px;
 }
 
+.MV12 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 .Uppercase {
   text-transform: uppercase;
 }
 
 .Pointer {
   cursor: pointer;
+}
+
+/* POSITIONING */
+
+.Relative {
+  position: relative;
+}
+
+.Absolute {
+  position: absolute;
 }
