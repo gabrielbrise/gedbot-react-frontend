@@ -3,7 +3,7 @@ import IconMD from "./IconMD";
 import styled from "styled-components";
 
 const GenerateSentenceButton = () => (
-  <Container className="MH12 Pointer">
+  <Container className="MH12 Pointer Flex JCCenter AICenter">
     <IconMD name="refresh" size={2} />
   </Container>
 );
@@ -11,8 +11,8 @@ const GenerateSentenceButton = () => (
 export default GenerateSentenceButton;
 
 const Container = styled.div`
-  width: 48px;
-  height: 32px;
+  width: 50px;
+  height: 35px;
   background-color: #aaff67;
   border-radius: 30px;
   border: 2px solid #aaff67;

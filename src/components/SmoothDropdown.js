@@ -8,8 +8,9 @@ export default class SmoothDropdown extends Component {
     <Container
       style={{ maxHeight: this.props.show ? this.ref.current.offsetHeight : 0 }}
     >
-      {console.log("offsetHeight", this.ref)}
-      <div ref={this.ref}>{this.props.children}</div>
+      <div ref={this.ref} className={this.props.className}>
+        {this.props.children}
+      </div>
     </Container>
   );
 }

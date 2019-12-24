@@ -10,14 +10,11 @@ export default class DropdownSection extends Component {
   };
   componentDidMount = () => console.log(this.state.show);
 
-  toggleShow = () => {
-    console.log(this.state.show);
-    this.setState({ show: !this.state.show });
-  };
+  toggleShow = () => this.setState({ show: !this.state.show });
 
   render() {
     return (
-      <Container className="PB24">
+      <Container className="PB24 Flex FlexColumn AICenter">
         <div
           className="Flex FlexRow AICenter ColorLime Pointer"
           onClick={this.toggleShow}
@@ -31,7 +28,10 @@ export default class DropdownSection extends Component {
             className={classNames({ Show: this.state.show })}
           />
         </div>
-        <SmoothDropdown show={this.state.show}>
+        <SmoothDropdown
+          show={this.state.show}
+          className="Flex FlexColumn AICenter PT12"
+        >
           {this.props.children}
         </SmoothDropdown>
       </Container>

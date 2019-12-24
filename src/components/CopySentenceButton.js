@@ -27,7 +27,7 @@ const Container = styled.span`
   }
   :hover {
     i {
-      transform: scale(1.3);
+      transform: scale(1.1);
       color: #282c34;
     }
     background-color: #ccc;
