@@ -1,3 +1,15 @@
+body {
+  background-color: #282c34;
+  color: white;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
   padding-top: 30vh;
@@ -54,20 +66,10 @@
   font-size: 3.5rem;
 }
 
+/* FONT STYLE */
+
 .Montserrat {
   font-family: "Montserrat", sans-serif;
-}
-
-body {
-  background-color: #282c34;
-  color: white;
-  font-size: 16px;
-  font-family: "Raleway", sans-serif;
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .TextLight {
@@ -78,50 +80,92 @@ body {
   font-weight: 700;
 }
 
-.TextBlack {
-  font-weight: 900;
-}
-
-.Flex {
-  display: flex;
-}
-
-.FlexColumn {
-  flex-direction: column;
-}
-
-.FlexRow {
-  flex-direction: row;
-}
-
-.JCCenter {
-  justify-content: center;
-}
-
-.AICenter {
-  align-items: center;
-}
-
-.W100 {
-  width: 100%;
+.Uppercase {
+  text-transform: uppercase;
 }
 
 /* PADDING */
 
-.PB32 {
-  padding-bottom: 32px;
+.P8 {
+  padding: 8px;
+}
+
+.P12 {
+  padding: 12px;
+}
+
+.P16 {
+  padding: 16px;
+}
+
+.P24 {
+  padding: 24px;
+}
+
+.P32 {
+  padding: 32px;
+}
+
+/* PADDING BOTTOM */
+
+.PB8 {
+  padding-bottom: 8px;
+}
+
+.P12 {
+  padding-bottom: 12px;
+}
+
+.PB16 {
+  padding-bottom: 16px;
 }
 
 .PB24 {
   padding-bottom: 24px;
 }
 
+.PB32 {
+  padding-bottom: 32px;
+}
+
+/* PADDING RIGHT */
+
+.PR8 {
+  padding-right: 8px;
+}
+
 .PR12 {
   padding-right: 12px;
 }
 
+/* PADDING TOP */
+
+.PT8 {
+  padding-top: 8px;
+}
+
 .PT12 {
   padding-top: 12px;
+}
+
+.PT24 {
+  padding-top: 24px;
+}
+
+.PT32 {
+  padding-top: 32px;
+}
+
+/* PADDING VERTICAL */
+
+.PV8 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.PV12 {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .PV16 {
@@ -129,8 +173,14 @@ body {
   padding-bottom: 16px;
 }
 
-.P16 {
-  padding: 16px;
+.PV24 {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.PV32 {
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 /* MARGIN */
@@ -157,15 +207,34 @@ body {
   margin-bottom: 12px;
 }
 
-.Uppercase {
-  text-transform: uppercase;
-}
-
-.Pointer {
-  cursor: pointer;
-}
-
 /* POSITIONING */
+
+.Flex {
+  display: flex;
+}
+
+.FlexColumn {
+  flex-direction: column;
+}
+
+.FlexRow {
+  flex-direction: row;
+}
+
+.MRow {
+  @media (min-width: 960px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.JCCenter {
+  justify-content: center;
+}
+
+.AICenter {
+  align-items: center;
+}
 
 .TextCenter {
   text-align: center;
@@ -177,4 +246,16 @@ body {
 
 .Absolute {
   position: absolute;
+}
+
+/* SIZE */
+
+.W100 {
+  width: 100%;
+}
+
+/* OTHERS */
+
+.Pointer {
+  cursor: pointer;
 }
