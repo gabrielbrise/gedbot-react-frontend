@@ -1,7 +1,13 @@
 import React from "react";
+import classNames from "classnames";
 
-const IconMD = ({ name, size }) => (
-  <i className={`zmdi zmdi-${name} zmdi-hc-${getSize(size)}`}></i>
+const IconMD = ({ name, size, className }) => (
+  <i
+    className={classNames(
+      `zmdi zmdi-${name} zmdi-hc-${getSize(size)}`,
+      className
+    )}
+  ></i>
 );
 
 const getSize = size => {
