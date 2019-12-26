@@ -4,7 +4,7 @@ import SendSentenceButton from "./SendSentenceButton";
 
 const SentenceForm = () => (
   <form className="Flex FlexColumn AICenter">
-    <div className="Flex JCCenter AICenter">
+    <div className="MRow JCCenter AICenter">
       <SentenceInput label="saudação"></SentenceInput>
       <SentenceInput label="desculpa" size={"500px"}></SentenceInput>
       <SentenceInput label="despedida"></SentenceInput>

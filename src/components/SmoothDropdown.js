@@ -17,5 +17,5 @@ export default class SmoothDropdown extends Component {
 
 const Container = styled.div`
   transition: all 0.3s ease;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
