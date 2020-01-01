@@ -1,16 +1,16 @@
 import React from "react";
 import DropdownSection from "../DropdownSection";
 import VotingCard from "../VotingCard";
-import Votes from "../../mocks/Votes";
+import Sentences from "../../mocks/Sentences";
 
 const SentenceGeneratorSection = () => (
   <DropdownSection title="Vote nas melhores">
     <div className="MRow JCCenter">
-      {Object.entries(Votes).map(([key, val]) => (
+      {Object.entries(Sentences).map(([key, val]) => (
         <div className="MH12 PB24">
           <div className="TextBold FS2x">{parseNames(key)}</div>
           <div className="Flex FlexColumn JCCenter">
-            {Votes[key].map(({ position, score, text, isApproved }) => (
+            {Sentences[key].map(({ position, score, text, isApproved }) => (
               <VotingCard score={score} sentence={text} />
             ))}
           </div>

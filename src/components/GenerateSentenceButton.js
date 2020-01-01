@@ -2,8 +2,8 @@ import React from "react";
 import IconMD from "./IconMD";
 import styled from "styled-components";
 
-const GenerateSentenceButton = () => (
-  <Container className="MH12 Pointer Flex JCCenter AICenter">
+const GenerateSentenceButton = ({ onClick }) => (
+  <Container className="MH12 Pointer Flex JCCenter AICenter" onClick={onClick}>
     <IconMD name="refresh" size={2} />
   </Container>
 );
