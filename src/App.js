@@ -32,7 +32,7 @@ export default class App extends Component {
           <Header title="GEDbot" subtitle="gerador de desculpas" />
           <SentenceGeneratorSection sentences={this.state.sentences} />
           <SendSentenceSection />
-          <VotingSection votes={this.state.votes} />
+          <VotingSection sentences={this.state.sentences} />
         </>
       ) : (
         <Loader />

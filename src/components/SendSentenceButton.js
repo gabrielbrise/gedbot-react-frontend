@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const GenerateSentenceButton = text => (
-  <Container className="Montserrat FS2x TextBold MH12 Pointer Flex JCCenter AICenter MV12">
+  <Container
+    type="submit"
+    className="Montserrat FS2x TextBold MH12 Pointer Flex JCCenter AICenter MV12"
+  >
     ENVIAR
   </Container>
 );

@@ -1,18 +1,23 @@
 import React from "react";
 import DropdownSection from "../DropdownSection";
 import VotingCard from "../VotingCard";
-import Sentences from "../../mocks/Sentences";
 
-const SentenceGeneratorSection = () => (
+const VotingSection = ({ sentences }) => (
   <DropdownSection title="Vote nas melhores">
     <div className="MRow JCCenter">
-      {Object.entries(Sentences).map(([key, val]) => (
+      {Object.entries(parseSentences(sentences)).map(([position, val]) => (
         <div className="MH12 PB24">
-          <div className="TextBold FS2x">{parseNames(key)}</div>
+          <div className="TextBold FS2x">{parseNames(position)}</div>
           <div className="Flex FlexColumn JCCenter">
-            {Sentences[key].map(({ position, score, text, isApproved }) => (
-              <VotingCard score={score} sentence={text} />
-            ))}
+            {parseSentences(sentences)[position].map(
+              ({ score, text, isApproved }, key) => (
+                <VotingCard
+                  score={score}
+                  sentence={text}
+                  key={`vote-${position}-${key}`}
+                />
+              )
+            )}
           </div>
         </div>
       ))}
@@ -20,7 +25,20 @@ const SentenceGeneratorSection = () => (
   </DropdownSection>
 );
 
-export default SentenceGeneratorSection;
+export default VotingSection;
+
+const parseSentences = sentences => {
+  const greeting = sentences.filter(
+    ({ position, isApproved }) => position === 1 && isApproved === false
+  );
+  const reason = sentences.filter(
+    ({ position, isApproved }) => position === 2 && isApproved === false
+  );
+  const goodbye = sentences.filter(
+    ({ position, isApproved }) => position === 3 && isApproved === false
+  );
+  return { greeting, reason, goodbye };
+};
 
 const parseNames = name => {
   switch (name) {

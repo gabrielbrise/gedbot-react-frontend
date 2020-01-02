@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const SentenceInput = ({ label, input, size }) => (
+const SentenceInput = ({ label, input, size, onChange, value }) => (
   <Container className="MH12 PB24">
     <div className="TextBold">{label}</div>
-    <input className="ColorWhite FS2x MV12 TextCenter" style={{ width: size }}>
+    <input
+      onChange={onChange}
+      className="ColorWhite FS2x MV12 TextCenter"
+      style={{ width: size }}
+      value={value}
+    >
       {input}
     </input>
   </Container>
