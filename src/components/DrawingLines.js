@@ -57,7 +57,7 @@ const LeftLines = () => (
   <svg
     id="left"
     width="35vw"
-    height="auto"
+    height="100%"
     viewBox="0 0 900 400"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const RightLines = () => (
   <svg
     id="right"
     width="35vw"
-    height="auto"
+    height="100%"
     viewBox="0 0 600 300"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

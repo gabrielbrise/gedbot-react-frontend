@@ -18,9 +18,9 @@ export default () => (
       cy="50"
       fill="none"
       stroke="#aaff67"
-      stroke-width="10"
+      strokeWidth="10"
       r="35"
-      stroke-dasharray="164.93361431346415 56.97787143782138"
+      strokeDasharray="164.93361431346415 56.97787143782138"
       transform="rotate(341.553 50.0001 50)"
     >
       <animateTransform

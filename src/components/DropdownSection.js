@@ -8,7 +8,6 @@ export default class DropdownSection extends Component {
   state = {
     show: false
   };
-  componentDidMount = () => console.log(this.state.show);
 
   toggleShow = () => this.setState({ show: !this.state.show });
 
