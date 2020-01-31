@@ -4,11 +4,11 @@ const fetchData = async () => {
     mode: "cors"
   };
   const sentences = await fetch(
-    `http://localhost:5000/api/v1/sentences`,
+    `${process.env.API_URL}/api/v1/sentences`,
     options
   ).then(res => res.json());
   const votes = await fetch(
-    `http://localhost:5000/api/v1/votes`,
+    `${process.env.API_URL}/api/v1/votes`,
     options
   ).then(res => res.json());
 
