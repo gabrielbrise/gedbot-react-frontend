@@ -38,7 +38,7 @@ export default class SentenceForm extends Component {
       },
       body: JSON.stringify(sentences)
     };
-    fetch(`http://localhost:5000/api/v1/sentences`, options);
+    fetch(`${process.env.REACT_APP_API_URL}/api/v1/sentences`, options);
     this.setState({ greeting: "", reason: "", goodbye: "" });
   };
   render = () => (
