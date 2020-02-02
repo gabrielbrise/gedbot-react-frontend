@@ -29,13 +29,13 @@ export default VotingSection;
 
 const parseSentences = sentences => {
   const greeting = sentences.filter(
-    ({ position, isApproved }) => position === 1 && isApproved === false
+    ({ position, isApproved }) => position === 1 && isApproved !== true
   );
   const reason = sentences.filter(
-    ({ position, isApproved }) => position === 2 && isApproved === false
+    ({ position, isApproved }) => position === 2 && isApproved !== true
   );
   const goodbye = sentences.filter(
-    ({ position, isApproved }) => position === 3 && isApproved === false
+    ({ position, isApproved }) => position === 3 && isApproved !== true
   );
   return { greeting, reason, goodbye };
 };

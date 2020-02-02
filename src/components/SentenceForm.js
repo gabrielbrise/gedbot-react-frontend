@@ -21,8 +21,9 @@ export default class SentenceForm extends Component {
       this.state.goodbye
     ];
     const filteredSentences = sentences.filter(sentence => sentence !== "");
-    const parsedSentences = filteredSentences.map(sentence => ({
-      text: sentence
+    const parsedSentences = filteredSentences.map((sentence, position) => ({
+      text: sentence,
+      position: position + 1
     }));
 
     this.sendSentences({ sentences: parsedSentences });
