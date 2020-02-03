@@ -2,8 +2,8 @@ import React from "react";
 import IconMD from "./IconMD";
 import styled from "styled-components";
 
-const CopyButtonSentence = () => (
-  <Container>
+const CopyButtonSentence = ({ onClick }) => (
+  <Container onClick={onClick}>
     <IconMD name="copy" size={1} />
   </Container>
 );

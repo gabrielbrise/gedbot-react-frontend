@@ -1,7 +1,9 @@
 import React from "react";
 
-const SentenceResult = ({ sentence }) => (
-  <p className="FS2x PV16">{sentence}</p>
+const SentenceResult = ({ sentence, id }) => (
+  <p className="FS2x PV16" id={id}>
+    {sentence}
+  </p>
 );
 
 export default SentenceResult;
