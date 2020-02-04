@@ -13,6 +13,9 @@ export default class SentenceForm extends Component {
     console.log({ [position]: event.target.value });
     this.setState({ [position]: event.target.value });
   };
+
+  parseText = text => text.replace(/^(\W+)(\w.+\w)(\W+)$/, `$2`);
+
   handleSubmit = event => {
     event.preventDefault();
     const sentences = [
@@ -22,7 +25,7 @@ export default class SentenceForm extends Component {
     ];
     const parsedSentences = sentences.map((sentence, index) => {
       return {
-        text: sentence,
+        text: this.parseText(sentence),
         position: index + 1
       };
     });
