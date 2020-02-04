@@ -20,13 +20,15 @@ export default class SentenceForm extends Component {
       this.state.reason,
       this.state.goodbye
     ];
-    const filteredSentences = sentences.filter(sentence => sentence !== "");
-    const parsedSentences = filteredSentences.map((sentence, position) => ({
-      text: sentence,
-      position: position + 1
-    }));
+    const parsedSentences = sentences.map((sentence, index) => {
+      return {
+        text: sentence,
+        position: index + 1
+      };
+    });
+    const filteredSentences = parsedSentences.filter(({ text }) => text !== "");
 
-    this.sendSentences({ sentences: parsedSentences });
+    this.sendSentences({ sentences: filteredSentences });
   };
 
   sendSentences = sentences => {
