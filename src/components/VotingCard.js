@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import IconMD from "./IconMD";
 import styled from "styled-components";
+import classNames from "classnames";
 
 export default class VotingCard extends Component {
   state = {
@@ -24,7 +25,8 @@ export default class VotingCard extends Component {
       );
       this.setState({
         isVoted: true,
-        score: isPositive ? this.state.score + 1 : this.state.score - 1
+        score: isPositive ? this.state.score + 1 : this.state.score - 1,
+        isPositive
       });
     }
   };
@@ -33,14 +35,25 @@ export default class VotingCard extends Component {
     <Container className="Flex FlexRow AICenter">
       <div className="Flex FlexColumn AICenter JCCenter">
         <IconMD
-          className="VotingArrow Pointer"
+          className={classNames("VotingArrow Pointer", {
+            PositiveVote: this.state.isVoted && this.state.isPositive
+          })}
           name="chevron-up"
           size={2}
           onClick={() => this.sendVote(true)}
         />
-        <span>{this.state.score}</span>
+        <span
+          className={classNames({
+            PositiveVote: this.state.isVoted && this.state.isPositive,
+            NegativeVote: this.state.isVoted && !this.state.isPositive
+          })}
+        >
+          {this.state.score}
+        </span>
         <IconMD
-          className="VotingArrow Pointer"
+          className={classNames("VotingArrow Pointer", {
+            NegativeVote: this.state.isVoted && !this.state.isPositive
+          })}
           name="chevron-down"
           size={2}
           onClick={() => this.sendVote(false)}
@@ -60,6 +73,12 @@ const Container = styled.div`
     &:hover {
       color: white;
     }
+  }
+  .PositiveVote {
+    color: #aaff67;
+  }
+  .NegativeVote {
+    color: red;
   }
   .SentenceBox {
     min-width: 280px;
