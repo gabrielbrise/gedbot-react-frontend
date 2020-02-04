@@ -14,7 +14,7 @@ export default class SentenceForm extends Component {
     this.setState({ [position]: event.target.value });
   };
 
-  parseText = text => text.replace(/^(\W+)(\w.+\w)(\W+)$/, `$2`);
+  parseText = text => text.replace(/^(\W+)(\w.+\w)(\W+)$/, `$2`).toLowerCase();
 
   handleSubmit = event => {
     event.preventDefault();
