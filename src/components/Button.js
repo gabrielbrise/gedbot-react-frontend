@@ -11,7 +11,7 @@ const Button = ({
   inverted
 }) => (
   <Container
-    className={`Montserrat FS2x TextBold MH12 Pointer Flex JCCenter AICenter MV12 ${className}`}
+    className={`Montserrat FS2x TextBold MH8 Pointer Flex JCCenter AICenter MV12 ${className}`}
     color={color}
     backgroundColor={backgroundColor}
     onClick={onClick}

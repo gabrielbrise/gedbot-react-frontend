@@ -13,7 +13,7 @@ export default class SentenceGeneratorSection extends Component {
   };
 
   render = () => (
-    <Container className="Flex AICenter FlexColumn">
+    <Container className="Flex AICenter FlexColumn PT8">
       <SentenceResult sentence={this.state.sentence} id="resultado" />
       <div className="Flex FlexRow PB24">
         <GenerateSentenceButton

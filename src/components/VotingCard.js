@@ -59,7 +59,7 @@ export default class VotingCard extends Component {
           onClick={() => this.sendVote(false)}
         />
       </div>
-      <p className="SentenceBox Flex AICenter JCCenter">
+      <p className="SentenceBox Flex AICenter JCCenter PH8">
         {this.props.sentence}
       </p>
     </Container>
@@ -67,7 +67,7 @@ export default class VotingCard extends Component {
 }
 
 const Container = styled.div`
-  max-width: 320px;
+  max-width: 300px;
   .VotingArrow {
     color: #adadad;
     &:hover {
