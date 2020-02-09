@@ -6,7 +6,7 @@ const VotingSection = ({ sentences }) => (
   <DropdownSection title="Vote nas melhores">
     <div className="MRow JCCenter">
       {Object.entries(parseSentences(sentences)).map(([position, val]) => (
-        <div className="MH12 PB24">
+        <div className="MH12 PB24" key={`position-${position}`}>
           <div className="TextBold FS2x">{parseNames(position)}</div>
           <div className="Flex FlexColumn JCCenter">
             {parseSentences(sentences)[position].map(
