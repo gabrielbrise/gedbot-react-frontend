@@ -158,6 +158,11 @@ body {
 
 /* PADDING VERTICAL */
 
+.PV0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .PV8 {
   padding-top: 8px;
   padding-bottom: 8px;
