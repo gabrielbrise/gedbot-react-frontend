@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import SentenceResult from "../SentenceResult";
-import GenerateSentenceButton from "../GenerateSentenceButton";
-import CopySentenceButton from "../CopySentenceButton";
+import IconMD from "../IconMD";
+import Button from "../Button";
+import generatePhrase from "../../helpers/generatePhrase";
+import copyText from "../../helpers/copyText";
+import styled from "styled-components";
 
 export default class SentenceGeneratorSection extends Component {
   state = {
@@ -9,18 +12,8 @@ export default class SentenceGeneratorSection extends Component {
       "hey guys, meu chuveiro estragou e estou envolvido com isso, divirtam-se"
   };
 
-  copyResultText = () => {
-    console.log("Copiando texto");
-    const el = document.createElement("textarea");
-    el.value = this.state.sentence;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand("copy");
-    document.body.removeChild(el);
-  };
-
   render = () => (
-    <div className="Flex AICenter FlexColumn">
+    <Container className="Flex AICenter FlexColumn">
       <SentenceResult sentence={this.state.sentence} id="resultado" />
       <div className="Flex FlexRow PB24">
         <GenerateSentenceButton
@@ -28,28 +21,40 @@ export default class SentenceGeneratorSection extends Component {
             this.setState({ sentence: generatePhrase(this.props.sentences) })
           }
         />
-        <CopySentenceButton onClick={() => this.copyResultText()} />
+        <CopySentenceButton onClick={() => copyText(this.state.sentence)} />
       </div>
-    </div>
+    </Container>
   );
 }
 
-const generatePhrase = sentences => {
-  const greetingArray = sentences.filter(
-    ({ position, isApproved }) => position === 1 && isApproved === true
-  );
-  const reasonArray = sentences.filter(
-    ({ position, isApproved }) => position === 2 && isApproved === true
-  );
-  const goodbyeArray = sentences.filter(
-    ({ position, isApproved }) => position === 3 && isApproved === true
-  );
+const GenerateSentenceButton = ({ onClick }) => (
+  <Button onClick={onClick} className="RefreshIcon">
+    <IconMD name="refresh" size={2} style={{ fontSize: 28 }} />
+  </Button>
+);
 
-  const random = array => array[Math.floor(Math.random() * array.length)];
+const CopySentenceButton = ({ onClick }) => (
+  <Button
+    onClick={onClick}
+    backgroundColor="#282c34"
+    color="#ededed"
+    inverted
+    style={{ borderWidth: 1 }}
+  >
+    <IconMD name="copy" size={1} style={{ fontSize: 18 }} />
+  </Button>
+);
 
-  const greeting = random(greetingArray).text;
-  const reason = random(reasonArray).text;
-  const goodbye = random(goodbyeArray).text;
-
-  return `${greeting}, ${reason}, ${goodbye}`;
-};
+const Container = styled.div`
+  .RefreshIcon {
+    i {
+      line-height: 0;
+      transition: transform 0.2s ease;
+    }
+    :hover {
+      i {
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+`;

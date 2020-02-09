@@ -1,12 +1,13 @@
 import React from "react";
 import classNames from "classnames";
 
-const IconMD = ({ name, size, className, onClick }) => (
+const IconMD = ({ name, size, className, onClick, style }) => (
   <i
     className={classNames(
       `zmdi zmdi-${name} zmdi-hc-${getSize(size)}`,
       className
     )}
+    style={style}
     onClick={onClick}
   ></i>
 );

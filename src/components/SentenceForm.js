@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SentenceInput from "./SentenceInput";
-import SendSentenceButton from "./SendSentenceButton";
+import Button from "./Button";
 
 export default class SentenceForm extends Component {
   state = {
@@ -66,7 +66,7 @@ export default class SentenceForm extends Component {
           value={this.state.goodbye}
         ></SentenceInput>
       </div>
-      <SendSentenceButton>ENVIAR</SendSentenceButton>
+      <Button>ENVIAR</Button>
     </form>
   );
 }
