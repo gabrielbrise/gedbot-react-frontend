@@ -7,6 +7,7 @@ import VotingSection from "./components/sections/VotingSection";
 import DrawingLines from "./components/DrawingLines";
 import fetchData from "./helpers/fetchData";
 import Loader from "./components/Loader";
+import gtagInitialize from "./helpers/gtag";
 
 export default class App extends Component {
   state = {
@@ -16,13 +17,15 @@ export default class App extends Component {
   };
 
   componentDidMount = async () =>
-    fetchData().then(res =>
-      this.setState({
-        sentences: res.sentences.data,
-        votes: res.votes.data,
-        fetched: true
-      })
-    );
+    fetchData()
+      .then(res =>
+        this.setState({
+          sentences: res.sentences.data,
+          votes: res.votes.data,
+          fetched: true
+        })
+      )
+      .then(() => gtagInitialize());
 
   render = () => (
     <div className="App Flex FlexColumn AICenter">
