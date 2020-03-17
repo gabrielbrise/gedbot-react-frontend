@@ -11,12 +11,14 @@ const Button = ({
   inverted
 }) => (
   <Container
-    className={`Montserrat FS2x TextBold MH8 Pointer Flex JCCenter AICenter MV12 ${className}`}
+    className={`Montserrat FS2x TextBold MH8 Pointer Flex JCCenter AICenter MV12 g-recaptcha ${className}`}
     color={color}
     backgroundColor={backgroundColor}
     onClick={onClick}
     inverted={inverted}
     style={style}
+    data-sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+    data-callback={onClick}
   >
     {children}
   </Container>

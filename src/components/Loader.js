@@ -8,8 +8,8 @@ export default () => (
       display: "block",
       shapeRendering: "auto"
     }}
-    width="100px"
-    height="100px"
+    width="32px"
+    height="32px"
     viewBox="0 0 100 100"
     preserveAspectRatio="xMidYMid"
   >

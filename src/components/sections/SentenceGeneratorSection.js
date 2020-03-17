@@ -5,6 +5,7 @@ import Button from "../Button";
 import generatePhrase from "../../helpers/generatePhrase";
 import copyText from "../../helpers/copyText";
 import styled from "styled-components";
+import Loader from "../Loader";
 
 export default class SentenceGeneratorSection extends Component {
   state = {
@@ -18,8 +19,10 @@ export default class SentenceGeneratorSection extends Component {
       <div className="Flex FlexRow PB24">
         <GenerateSentenceButton
           onClick={() =>
+            this.props.fetched &&
             this.setState({ sentence: generatePhrase(this.props.sentences) })
           }
+          fetched={this.props.fetched}
         />
         <CopySentenceButton onClick={() => copyText(this.state.sentence)} />
       </div>
@@ -27,11 +30,19 @@ export default class SentenceGeneratorSection extends Component {
   );
 }
 
-const GenerateSentenceButton = ({ onClick }) => (
-  <Button onClick={onClick} className="RefreshIcon">
-    <IconMD name="refresh" size={2} style={{ fontSize: 28 }} />
-  </Button>
-);
+const GenerateSentenceButton = ({ onClick, fetched }) => {
+  if (!fetched)
+    return (
+      <div className="MV12" style={{ width: 50, height: 32, marginRight: 12 }}>
+        <Loader />
+      </div>
+    );
+  return (
+    <Button onClick={onClick} className="RefreshIcon">
+      <IconMD name="refresh" size={2} style={{ fontSize: 28 }} />
+    </Button>
+  );
+};
 
 const CopySentenceButton = ({ onClick }) => (
   <Button

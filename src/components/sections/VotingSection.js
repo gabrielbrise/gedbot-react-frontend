@@ -1,28 +1,33 @@
 import React from "react";
 import DropdownSection from "../DropdownSection";
 import VotingCard from "../VotingCard";
+import Loader from "../Loader";
 
-const VotingSection = ({ sentences }) => (
-  <DropdownSection title="Vote nas melhores">
-    <div className="MRow JCCenter">
-      {Object.entries(parseSentences(sentences)).map(([position, val]) => (
-        <div className="MH12 PB24" key={`position-${position}`}>
-          <div className="TextBold FS2x">{parseNames(position)}</div>
-          <div className="Flex FlexColumn JCCenter">
-            {parseSentences(sentences)[position].map(
-              ({ score, text, _id }, key) => (
-                <VotingCard
-                  score={score}
-                  sentence={text}
-                  key={`vote-${position}-${key}`}
-                  id={_id}
-                />
-              )
-            )}
+const VotingSection = ({ sentences, fetched }) => (
+  <DropdownSection title="Vote nas sugestões">
+    {!fetched ? (
+      <Loader />
+    ) : (
+      <div className="MRow JCCenter">
+        {Object.entries(parseSentences(sentences)).map(([position, val]) => (
+          <div className="MH12 PB24" key={`position-${position}`}>
+            <div className="TextBold FS2x">{parseNames(position)}</div>
+            <div className="Flex FlexColumn JCCenter">
+              {parseSentences(sentences)[position].map(
+                ({ score, text, _id }, key) => (
+                  <VotingCard
+                    score={score}
+                    sentence={text}
+                    key={`vote-${position}-${key}`}
+                    id={_id}
+                  />
+                )
+              )}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    )}
   </DropdownSection>
 );
 
