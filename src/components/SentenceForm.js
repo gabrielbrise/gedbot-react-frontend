@@ -16,8 +16,7 @@ export default class SentenceForm extends Component {
 
   parseText = text => text.replace(/^(\W+)(\w.+\w)(\W+)$/, `$2`).toLowerCase();
 
-  handleSubmit = event => {
-    event.preventDefault();
+  handleSubmit = () => {
     const sentences = [
       this.state.greeting,
       this.state.reason,
@@ -47,7 +46,11 @@ export default class SentenceForm extends Component {
     this.setState({ greeting: "", reason: "", goodbye: "" });
   };
   render = () => (
-    <form onSubmit={this.handleSubmit} className="Flex FlexColumn AICenter">
+    <form
+      id="sentence"
+      onSubmit={this.handleSubmit}
+      className="Flex FlexColumn AICenter"
+    >
       <div className="MRow JCCenter AICenter">
         <SentenceInput
           label="saudação"
@@ -66,7 +69,9 @@ export default class SentenceForm extends Component {
           value={this.state.goodbye}
         ></SentenceInput>
       </div>
-      <Button captcha>ENVIAR</Button>
+      <Button captcha onClick={this.handleSubmit}>
+        ENVIAR
+      </Button>
     </form>
   );
 }
