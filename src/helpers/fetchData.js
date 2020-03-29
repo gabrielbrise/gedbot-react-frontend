@@ -3,16 +3,15 @@ const fetchData = async () => {
     method: "GET",
     mode: "cors"
   };
+
   const sentences = await fetch(
     `${process.env.REACT_APP_API_URL}/api/v1/sentences`,
     options
-  ).then(res => res.json());
-  const votes = await fetch(
-    `${process.env.REACT_APP_API_URL}/api/v1/votes`,
-    options
-  ).then(res => res.json());
+  )
+    .then(res => res.json())
+    .catch(error => console.error(error));
 
-  return { sentences, votes };
+  return { sentences };
 };
 
 export default fetchData;

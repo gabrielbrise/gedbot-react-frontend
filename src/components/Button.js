@@ -17,8 +17,8 @@ const Button = ({
     onClick={onClick}
     inverted={inverted}
     style={style}
-    data-sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-    data-callback={onClick}
+    // data-sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+    // data-callback={onClick}
   >
     {children}
   </Container>

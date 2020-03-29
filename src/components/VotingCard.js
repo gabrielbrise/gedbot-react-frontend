@@ -5,10 +5,11 @@ import classNames from "classnames";
 
 export default class VotingCard extends Component {
   state = {
-    isVoted: false,
-    isPositive: undefined,
+    isVoted: this.props.isVoted,
+    isPositive: this.props.isPositive,
     score: this.props.score
   };
+
   sendVote = isPositive => {
     if (!this.state.isVoted) {
       const options = {
@@ -22,7 +23,7 @@ export default class VotingCard extends Component {
       fetch(
         `${process.env.REACT_APP_API_URL}/api/v1/sentences/${this.props.id}/vote`,
         options
-      );
+      ).catch(err => console.error(err));
       this.setState({
         isVoted: true,
         score: isPositive ? this.state.score + 1 : this.state.score - 1,

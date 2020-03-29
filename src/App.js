@@ -12,20 +12,19 @@ import gtagInitialize from "./helpers/gtag";
 export default class App extends Component {
   state = {
     sentences: [],
-    votes: [],
     fetched: false
   };
 
   componentDidMount = async () =>
-    fetchData()
+    await fetchData()
       .then(res =>
         this.setState({
           sentences: res.sentences.data,
-          votes: res.votes.data,
           fetched: true
         })
       )
-      .then(() => gtagInitialize());
+      .then(() => gtagInitialize())
+      .catch(error => console.error(error));
 
   render = () => (
     <div className="App Flex FlexColumn AICenter">

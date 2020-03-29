@@ -14,12 +14,14 @@ const VotingSection = ({ sentences, fetched }) => (
             <div className="TextBold FS2x">{parseNames(position)}</div>
             <div className="Flex FlexColumn JCCenter">
               {parseSentences(sentences)[position].map(
-                ({ score, text, _id }, key) => (
+                ({ score, text, _id, isPositive, isVoted }, key) => (
                   <VotingCard
                     score={score}
                     sentence={text}
                     key={`vote-${position}-${key}`}
                     id={_id}
+                    isPositive={isPositive}
+                    isVoted={isVoted}
                   />
                 )
               )}
