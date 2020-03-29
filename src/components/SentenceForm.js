@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SentenceInput from "./SentenceInput";
 import Button from "./Button";
 import Loader from "./Loader";
+import { toast } from "react-toastify";
 
 export default class SentenceForm extends Component {
   state = {
@@ -48,8 +49,24 @@ export default class SentenceForm extends Component {
       },
       body: JSON.stringify(sentences)
     };
-    fetch(`${process.env.REACT_APP_API_URL}/api/v1/sentences`, options);
-    this.setState({ greeting: "", reason: "", goodbye: "", fetching: false });
+    fetch(`${process.env.REACT_APP_API_URL}/api/v1/sentences`, options)
+      .then(() => {
+        toast("Sugestões enviadas com sucesso!", {
+          progressClassName: "SuccessProgressBar"
+        });
+        return this.setState({
+          greeting: "",
+          reason: "",
+          goodbye: "",
+          fetching: false
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        return toast("Erro ao enviar sugestões :(", {
+          type: toast.TYPE.ERROR
+        });
+      });
   };
   render = () => (
     <form

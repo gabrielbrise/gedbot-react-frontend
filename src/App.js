@@ -8,6 +8,8 @@ import VotingSection from "./components/sections/VotingSection";
 import DrawingLines from "./components/DrawingLines";
 import fetchData from "./helpers/fetchData";
 import gtagInitialize from "./helpers/gtag";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default class App extends Component {
   state = {
@@ -41,6 +43,7 @@ export default class App extends Component {
           sentences={this.state.sentences}
           fetched={this.state.fetched}
         />
+        <ToastContainer />
       </>
     </div>
   );

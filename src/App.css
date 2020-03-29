@@ -20,6 +20,14 @@ body {
   color: #aaff67;
 }
 
+.BGLime {
+  background-color: #aaff67;
+}
+
+.SuccessProgressBar {
+  background: #aaff67 !important;
+}
+
 .ColorWhite {
   color: white;
 }
