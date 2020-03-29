@@ -1,17 +1,23 @@
 import React, { Component } from "react";
 import SentenceInput from "./SentenceInput";
 import Button from "./Button";
+import Loader from "./Loader";
 
 export default class SentenceForm extends Component {
   state = {
     greeting: "",
     reason: "",
-    goodbye: ""
+    goodbye: "",
+    fetching: false
   };
 
   handleChange = (event, position) => {
     console.log({ [position]: event.target.value });
     this.setState({ [position]: event.target.value });
+  };
+
+  componentDidMount = () => {
+    window.handleRecaptcha = () => this.handleSubmit();
   };
 
   parseText = text => text.replace(/^(\W+)(\w.+\w)(\W+)$/, `$2`).toLowerCase();
@@ -43,7 +49,7 @@ export default class SentenceForm extends Component {
       body: JSON.stringify(sentences)
     };
     fetch(`${process.env.REACT_APP_API_URL}/api/v1/sentences`, options);
-    this.setState({ greeting: "", reason: "", goodbye: "" });
+    this.setState({ greeting: "", reason: "", goodbye: "", fetching: false });
   };
   render = () => (
     <form
@@ -69,9 +75,19 @@ export default class SentenceForm extends Component {
           value={this.state.goodbye}
         ></SentenceInput>
       </div>
-      <Button captcha onClick={this.handleSubmit}>
-        ENVIAR
-      </Button>
+      {!this.state.fetching ? (
+        <Button
+          captcha
+          onClick={this.handleSubmit}
+          setFetching={() => this.setState({ fetching: true })}
+        >
+          ENVIAR
+        </Button>
+      ) : (
+        <div className="MV12">
+          <Loader />
+        </div>
+      )}
     </form>
   );
 }

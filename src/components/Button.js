@@ -10,16 +10,9 @@ const Button = ({
   className,
   style,
   inverted,
-  captcha
+  captcha,
+  setFetching
 }) => {
-  useEffect(
-    function() {
-      if (captcha) {
-        window.handleRecaptcha = () => onClick();
-      }
-    },
-    [null]
-  );
   return (
     <Container
       className={classNames(
@@ -29,7 +22,7 @@ const Button = ({
       )}
       color={color}
       backgroundColor={backgroundColor}
-      onClick={captcha ? undefined : onClick}
+      onClick={captcha ? setFetching : onClick}
       inverted={inverted}
       style={style}
       data-sitekey={
