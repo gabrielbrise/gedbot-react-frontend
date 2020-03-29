@@ -8,17 +8,22 @@ const Button = ({
   onClick,
   className,
   style,
-  inverted
+  inverted,
+  captcha
 }) => (
   <Container
-    className={`Montserrat FS2x TextBold MH8 Pointer Flex JCCenter AICenter MV12 g-recaptcha ${className}`}
+    className={`Montserrat FS2x TextBold MH8 Pointer Flex JCCenter AICenter MV12 ${
+      captcha ? "g-recaptcha" : ""
+    } ${className}`}
     color={color}
     backgroundColor={backgroundColor}
-    onClick={onClick}
+    onClick={captcha ? undefined : onClick}
     inverted={inverted}
     style={style}
-    // data-sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-    // data-callback={onClick}
+    data-sitekey={
+      captcha ? process.env.REACT_APP_RECAPTCHA_SITE_KEY : undefined
+    }
+    data-callback={captcha ? onClick : undefined}
   >
     {children}
   </Container>

@@ -66,7 +66,7 @@ export default class SentenceForm extends Component {
           value={this.state.goodbye}
         ></SentenceInput>
       </div>
-      <Button>ENVIAR</Button>
+      <Button captcha>ENVIAR</Button>
     </form>
   );
 }
