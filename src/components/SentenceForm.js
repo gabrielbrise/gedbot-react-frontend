@@ -9,7 +9,7 @@ export default class SentenceForm extends Component {
     greeting: "",
     reason: "",
     goodbye: "",
-    fetching: false
+    fetching: false,
   };
 
   handleChange = (event, position) => {
@@ -21,18 +21,19 @@ export default class SentenceForm extends Component {
     window.handleRecaptcha = () => this.handleSubmit();
   };
 
-  parseText = text => text.replace(/^(\W+)(\w.+\w)(\W+)$/, `$2`).toLowerCase();
+  parseText = (text) =>
+    text.replace(/^(\W+)(\w.+\w)(\W+)$/, `$2`).toLowerCase();
 
   handleSubmit = () => {
     const sentences = [
       this.state.greeting,
       this.state.reason,
-      this.state.goodbye
+      this.state.goodbye,
     ];
     const parsedSentences = sentences.map((sentence, index) => {
       return {
         text: this.parseText(sentence),
-        position: index + 1
+        position: index + 1,
       };
     });
     const filteredSentences = parsedSentences.filter(({ text }) => text !== "");
@@ -40,31 +41,31 @@ export default class SentenceForm extends Component {
     this.sendSentences({ sentences: filteredSentences });
   };
 
-  sendSentences = sentences => {
+  sendSentences = (sentences) => {
     const options = {
       method: "POST",
       mode: "cors",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(sentences)
+      body: JSON.stringify(sentences),
     };
     fetch(`${process.env.REACT_APP_API_URL}/api/v1/sentences`, options)
       .then(() => {
         toast("Sugestões enviadas com sucesso!", {
-          progressClassName: "SuccessProgressBar"
+          progressClassName: "SuccessProgressBar",
         });
         return this.setState({
           greeting: "",
           reason: "",
           goodbye: "",
-          fetching: false
+          fetching: false,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         return toast("Erro ao enviar sugestões :(", {
-          type: toast.TYPE.ERROR
+          type: toast.TYPE.ERROR,
         });
       });
   };
@@ -72,23 +73,23 @@ export default class SentenceForm extends Component {
     <form
       id="sentence"
       onSubmit={this.handleSubmit}
-      className="Flex FlexColumn AICenter"
+      className="Flex FlexColumn AICenter PT12"
     >
       <div className="MRow JCCenter AICenter">
         <SentenceInput
           label="saudação"
-          onChange={event => this.handleChange(event, "greeting")}
+          onChange={(event) => this.handleChange(event, "greeting")}
           value={this.state.greeting}
         ></SentenceInput>
         <SentenceInput
           label="desculpa"
-          size={"500px"}
-          onChange={event => this.handleChange(event, "reason")}
+          size="500px"
+          onChange={(event) => this.handleChange(event, "reason")}
           value={this.state.reason}
         ></SentenceInput>
         <SentenceInput
           label="despedida"
-          onChange={event => this.handleChange(event, "goodbye")}
+          onChange={(event) => this.handleChange(event, "goodbye")}
           value={this.state.goodbye}
         ></SentenceInput>
       </div>

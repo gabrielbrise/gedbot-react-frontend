@@ -7,57 +7,59 @@ export default class VotingCard extends Component {
   state = {
     isVoted: this.props.isVoted,
     isPositive: this.props.isPositive,
-    score: this.props.score
+    score: this.props.score,
   };
 
-  sendVote = isPositive => {
+  sendVote = (isPositive) => {
     if (!this.state.isVoted) {
       const options = {
         method: "POST",
         mode: "cors",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ isPositive })
+        body: JSON.stringify({ isPositive }),
       };
       fetch(
         `${process.env.REACT_APP_API_URL}/api/v1/sentences/${this.props.id}/vote`,
         options
-      ).catch(err => console.error(err));
+      ).catch((err) => console.error(err));
       this.setState({
         isVoted: true,
         score: isPositive ? this.state.score + 1 : this.state.score - 1,
-        isPositive
+        isPositive,
       });
     }
   };
 
   render = () => (
-    <Container className="Flex FlexRow AICenter">
-      <div className="Flex FlexColumn AICenter JCCenter">
+    <Container className="Flex FlexRow AICenter MV12">
+      <div className="Flex FlexColumn AICenter JCCenter Vote">
         <IconMD
           className={classNames("VotingArrow Pointer", {
-            PositiveVote: this.state.isVoted && this.state.isPositive
+            PositiveVote: this.state.isVoted && this.state.isPositive,
           })}
-          name="chevron-up"
-          size={2}
+          name="thumb-up"
+          size={1}
           onClick={() => this.sendVote(true)}
+          style={{ top: 0 }}
         />
         <span
           className={classNames({
             PositiveVote: this.state.isVoted && this.state.isPositive,
-            NegativeVote: this.state.isVoted && !this.state.isPositive
+            NegativeVote: this.state.isVoted && !this.state.isPositive,
           })}
         >
           {this.state.score}
         </span>
         <IconMD
           className={classNames("VotingArrow Pointer", {
-            NegativeVote: this.state.isVoted && !this.state.isPositive
+            NegativeVote: this.state.isVoted && !this.state.isPositive,
           })}
-          name="chevron-down"
-          size={2}
+          name="thumb-down"
+          size={1}
           onClick={() => this.sendVote(false)}
+          style={{ bottom: 0 }}
         />
       </div>
       <p className="SentenceBox Flex AICenter JCCenter PH8">
@@ -69,23 +71,34 @@ export default class VotingCard extends Component {
 
 const Container = styled.div`
   max-width: 300px;
+  .Vote {
+    padding-right: 8px;
+    position: relative;
+    height: 60px;
+    min-width: 24px;
+  }
   .VotingArrow {
-    color: #adadad;
-    &:hover {
-      color: white;
+    color: #5b5b5b;
+    @media (min-width: 960px) {
+      &:hover {
+        color: white;
+      }
     }
+    position: absolute;
   }
   .PositiveVote {
+    top: 0;
     color: #aaff67;
   }
   .NegativeVote {
+    bottom: 0;
     color: red;
   }
   .SentenceBox {
     min-width: 280px;
-    margin-left: 12px;
     min-height: 60px;
-    border: 1px solid #ababab;
+    padding: 4px;
+    border: 1px solid #5b5b5b;
     background-color: transparent;
   }
 `;
