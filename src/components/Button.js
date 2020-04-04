@@ -24,7 +24,12 @@ const Button = ({
       backgroundColor={backgroundColor}
       onClick={captcha ? setFetching : onClick}
       inverted={inverted}
-      style={style}
+      style={{
+        "--background-color": backgroundColor,
+        "--color": color,
+        "--border-color": inverted ? color : backgroundColor,
+        ...style,
+      }}
       data-sitekey={
         captcha ? process.env.REACT_APP_RECAPTCHA_SITE_KEY : undefined
       }
@@ -41,15 +46,14 @@ const Container = styled.button`
   height: 32px;
   width: min-content;
   padding: 4px 12px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: var(--background-color);
   border-radius: 30px;
-  border: ${(props) =>
-    `2px solid ${props.inverted ? props.color : props.backgroundColor}`};
+  border: 2px solid var(--border-color);
   transition: all 0.2s ease;
-  color: ${(props) => props.color};
+  color: var(--color);
 
   :hover {
-    color: ${(props) => props.backgroundColor};
-    background-color: ${(props) => props.color};
+    color: var(--background-color);
+    background-color: var(--color);
   }
 `;

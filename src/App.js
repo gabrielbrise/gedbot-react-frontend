@@ -50,9 +50,6 @@ export default class App extends Component {
 
 const Container = styled.div`
   text-align: center;
-  padding-top: 20vh;
   position: relative;
-  @media (min-width: 960px) {
-    padding-top: 30vh;
-  }
+  padding-top: calc((100vmin / 4));
 `;
