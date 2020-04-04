@@ -5,9 +5,14 @@ const HowToSection = () => (
   <DropdownSection title="Como funciona o gerador">
     <div
       dangerouslySetInnerHTML={{
-        __html: text
+        __html: text,
       }}
-      style={{ margin: "auto", maxWidth: 600 }}
+      style={{
+        margin: "auto",
+        maxWidth: 600,
+        paddingLeft: 12,
+        paddingRight: 12,
+      }}
     />
   </DropdownSection>
 );

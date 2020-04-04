@@ -7,7 +7,7 @@ const SentenceInput = ({ label, input, size, onChange, value }) => (
     <input
       onChange={onChange}
       className="ColorWhite FS2x MV12 TextCenter"
-      style={{ width: size }}
+      style={{ "--input-width": size }}
       value={value}
     >
       {input}
@@ -23,5 +23,11 @@ const Container = styled.div`
     background-color: transparent;
     border: none;
     border-bottom: 1px solid;
+    width: 80vw;
+  }
+  @media (min-width: 768px) {
+    input {
+      width: var(--input-width);
+    }
   }
 `;

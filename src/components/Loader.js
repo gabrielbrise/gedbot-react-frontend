@@ -1,12 +1,13 @@
 import React from "react";
 
-export default () => (
+export default ({ style }) => (
   <svg
     style={{
       margin: "auto",
       background: "none",
       display: "block",
-      shapeRendering: "auto"
+      shapeRendering: "auto",
+      ...style,
     }}
     width="32px"
     height="32px"
@@ -17,7 +18,6 @@ export default () => (
       cx="50"
       cy="50"
       fill="none"
-      stroke="#aaff67"
       strokeWidth="10"
       r="35"
       strokeDasharray="164.93361431346415 56.97787143782138"

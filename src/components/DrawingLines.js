@@ -23,13 +23,16 @@ const Container = styled.div`
   svg {
     position: absolute;
     opacity: 0.4;
-    top: -35vh;
+    top: -45vh;
     stroke: #aaff67;
     stroke-width: 1px;
     stroke-dasharray: 2000;
     stroke-dashoffset: 4000;
     animation: dash 8s ease alternate-reverse;
     animation-iteration-count: infinite;
+    @media (min-width: 960px) {
+      top: -35vh;
+    }
 
     @keyframes dash {
       0% {
