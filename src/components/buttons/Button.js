@@ -51,7 +51,9 @@ const Container = styled.button`
   border: 2px solid var(--border-color);
   transition: all 0.2s ease;
   color: var(--color);
-
+  svg {
+    stroke: var(--color);
+  }
   :hover {
     color: var(--background-color);
     background-color: var(--color);

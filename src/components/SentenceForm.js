@@ -13,7 +13,6 @@ export default class SentenceForm extends Component {
   };
 
   handleChange = (event, position) => {
-    console.log({ [position]: event.target.value });
     this.setState({ [position]: event.target.value });
   };
 

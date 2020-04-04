@@ -6,7 +6,7 @@ import Loader from "../Loader";
 const VotingSection = ({ sentences, fetched }) => (
   <DropdownSection title="Vote nas sugestões">
     {!fetched ? (
-      <Loader />
+      <Loader style={{ stroke: "#aaff67" }} />
     ) : (
       <div className="MRow JCCenter">
         {Object.entries(parseSentences(sentences)).map(([position, val]) => (
@@ -35,7 +35,7 @@ const VotingSection = ({ sentences, fetched }) => (
 
 export default VotingSection;
 
-const parseSentences = sentences => {
+const parseSentences = (sentences) => {
   const greeting = sentences.filter(
     ({ position, isApproved }) => position === 1 && isApproved !== true
   );
@@ -48,7 +48,7 @@ const parseSentences = sentences => {
   return { greeting, reason, goodbye };
 };
 
-const parseNames = name => {
+const parseNames = (name) => {
   switch (name) {
     case "greeting":
       return "saudação";

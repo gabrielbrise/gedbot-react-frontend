@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
-const copyResultText = text => {
-  console.log("Copiando texto");
+const copyResultText = (text) => {
   const el = document.createElement("textarea");
   el.value = text;
   document.body.appendChild(el);
@@ -9,9 +8,8 @@ const copyResultText = text => {
   document.execCommand("copy");
   document.body.removeChild(el);
   toast("Desculpa copiada com sucesso!", {
-    progressClassName: "SuccessProgressBar"
+    progressClassName: "SuccessProgressBar",
   });
-  console.log("Desculpa copiada com sucesso!");
 };
 
 export default copyResultText;
