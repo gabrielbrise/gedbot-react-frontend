@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SentenceInput from "./SentenceInput";
-import Button from "./Button";
+import Button from "./buttons/Button";
 import Loader from "./Loader";
 import { toast } from "react-toastify";
 
